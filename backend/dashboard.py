@@ -46,8 +46,374 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+st.markdown(
+    """
+    <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    :root {
+        --bg: #0b0f14;
+        --surface: #10161d;
+        --surface-2: #141b23;
+        --border: rgba(255,255,255,0.075);
+        --muted: #9aa5b4;
+        --text: #f4f7fa;
+        --accent: #43d17d;
+    }
+
+    html,
+    body,
+    [class*="css"],
+    .stApp {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .stApp {
+        background:
+            radial-gradient(
+                circle at 15% 0%,
+                rgba(67,209,125,0.055),
+                transparent 28%
+            ),
+            radial-gradient(
+                circle at 90% 10%,
+                rgba(80,160,255,0.035),
+                transparent 28%
+            ),
+            var(--bg);
+    }
+
+    [data-testid="stAppViewContainer"] {
+        background: transparent;
+    }
+
+    .block-container {
+        max-width: 1480px;
+        padding-top: 2.4rem;
+        padding-bottom: 4rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+    [data-testid="stHeader"] {
+        background: transparent;
+    }
+
+    [data-testid="stSidebar"] {
+        background:
+            linear-gradient(
+                180deg,
+                #11161d 0%,
+                #0f141b 100%
+            );
+        border-right: 1px solid var(--border);
+    }
+
+    [data-testid="stSidebar"] > div:first-child {
+        padding-top: 1.5rem;
+    }
+
+    [data-testid="stSidebar"] * {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    [data-testid="stSidebar"] h1 {
+        font-size: 24px !important;
+        font-weight: 750 !important;
+        letter-spacing: -0.03em !important;
+        margin-bottom: 0.2rem !important;
+    }
+
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3 {
+        font-size: 17px !important;
+        font-weight: 650 !important;
+        letter-spacing: -0.01em !important;
+    }
+
+    [data-testid="stSidebar"] .stMarkdown p {
+        color: #9aa5b4;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    [data-testid="stSidebar"] hr {
+        margin: 1.1rem 0;
+    }
+
+    [data-testid="stSidebar"] label {
+        font-size: 14px !important;
+        font-weight: 550 !important;
+        color: #c0c8d3 !important;
+    }
+
+    [data-testid="stSidebar"] [data-baseweb="select"] > div,
+    [data-testid="stSidebar"] [data-baseweb="input"] > div {
+        border-radius: 10px !important;
+    }
+
+    [data-testid="stSidebarNav"] {
+        padding-top: 0.2rem;
+    }
+
+    [data-testid="stSidebarNav"] span {
+        font-size: 15px !important;
+        font-weight: 600 !important;
+    }
+
+    [data-testid="stSidebar"] [data-testid="stCaptionContainer"] {
+        font-size: 13.5px !important;
+        line-height: 1.55 !important;
+        color: #9aa5b4 !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        color: var(--text) !important;
+    }
+
+    h1 {
+        font-size: 42px !important;
+        line-height: 1.12 !important;
+        font-weight: 800 !important;
+        letter-spacing: -0.045em !important;
+        margin-top: 0 !important;
+        margin-bottom: 0.45rem !important;
+    }
+
+    h2 {
+        font-size: 30px !important;
+        line-height: 1.25 !important;
+        font-weight: 720 !important;
+        letter-spacing: -0.03em !important;
+        margin-top: 2rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    h3 {
+        font-size: 21px !important;
+        line-height: 1.3 !important;
+        font-weight: 650 !important;
+        letter-spacing: -0.018em !important;
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.65rem !important;
+    }
+
+    h4 {
+        font-size: 17px !important;
+        font-weight: 650 !important;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.7;
+        color: #cbd3dd;
+    }
+
+    [data-testid="stCaptionContainer"] {
+        color: #9aa5b4 !important;
+        font-size: 14px !important;
+        line-height: 1.55 !important;
+    }
+
+    h1 a,
+    h2 a,
+    h3 a,
+    h4 a {
+        display: none !important;
+    }
+
+    [data-testid="stMetric"] {
+        background:
+            linear-gradient(
+                180deg,
+                #121922 0%,
+                #0f151c 100%
+            );
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1.1rem 1.15rem;
+        min-height: 128px;
+        box-shadow:
+            0 10px 28px rgba(0,0,0,0.12);
+    }
+
+    [data-testid="stMetricLabel"] {
+        color: #a7b1be !important;
+        font-size: 13px !important;
+        font-weight: 650 !important;
+        text-transform: uppercase;
+        letter-spacing: 0.055em !important;
+    }
+
+    [data-testid="stMetricValue"] {
+        color: #f6f8fa !important;
+        font-size: 34px !important;
+        line-height: 1.08 !important;
+        font-weight: 760 !important;
+        letter-spacing: -0.04em !important;
+    }
+
+    [data-testid="stMetricDelta"] {
+        font-size: 12px !important;
+        font-weight: 600 !important;
+    }
+
+    [data-testid="stVerticalBlockBorderWrapper"] {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(17,24,32,0.96),
+                rgba(14,20,27,0.96)
+            ) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: 18px !important;
+        box-shadow:
+            0 12px 34px rgba(0,0,0,0.13);
+    }
+
+    [data-testid="stAlert"] {
+        border-radius: 14px !important;
+        border: 1px solid var(--border) !important;
+        font-size: 15px !important;
+    }
+
+    [data-testid="stAlert"] p {
+        font-size: 15px !important;
+        line-height: 1.65 !important;
+    }
+
+    [data-testid="stInfo"] {
+        background: rgba(76,132,255,0.055) !important;
+    }
+
+    [data-testid="stSuccess"] {
+        background: rgba(67,209,125,0.075) !important;
+    }
+
+    [data-testid="stWarning"] {
+        background: rgba(242,180,66,0.075) !important;
+    }
+
+    [data-testid="stError"] {
+        background: rgba(255,90,90,0.075) !important;
+    }
+
+    .stButton > button {
+        min-height: 47px !important;
+        border-radius: 12px !important;
+        font-size: 14px !important;
+        font-weight: 650 !important;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+        border: 1px solid rgba(255,255,255,0.09) !important;
+        transition:
+            transform 0.18s ease,
+            border-color 0.18s ease,
+            background 0.18s ease !important;
+    }
+
+    .stButton > button:hover {
+        transform: translateY(-1px);
+        border-color: rgba(67,209,125,0.32) !important;
+    }
+
+    [data-baseweb="select"] > div,
+    [data-baseweb="input"] > div {
+        border-radius: 11px !important;
+        background: #111820 !important;
+        border-color: rgba(255,255,255,0.08) !important;
+    }
+
+    .stTextInput input,
+    .stNumberInput input,
+    textarea {
+        font-size: 15px !important;
+    }
+
+    [data-testid="stDataFrame"] {
+        border-radius: 14px;
+        overflow: hidden;
+    }
+
+    [data-testid="stChatMessage"] {
+        border-radius: 16px;
+        border: 1px solid rgba(255,255,255,0.045);
+        background: rgba(16,22,29,0.55);
+        margin-bottom: 0.7rem;
+    }
+
+    [data-testid="stChatMessage"] p {
+        font-size: 16px !important;
+        line-height: 1.72 !important;
+    }
+
+    [data-testid="stChatMessage"] li {
+        font-size: 16px !important;
+        line-height: 1.65 !important;
+    }
+
+    [data-testid="stChatInput"] {
+        margin-top: 0.7rem;
+    }
+
+    [data-testid="stRadio"] label {
+        font-size: 14px !important;
+        font-weight: 600 !important;
+    }
+
+    [data-testid="stRadio"] p {
+        font-size: 14px !important;
+    }
+
+    [data-testid="stExpander"] {
+        border-radius: 14px !important;
+        border: 1px solid var(--border) !important;
+    }
+
+    [data-testid="stExpander"] p {
+        font-size: 15px !important;
+        line-height: 1.65 !important;
+    }
+
+    hr {
+        border-color: rgba(255,255,255,0.065) !important;
+        margin: 1.6rem 0 !important;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+        color: #b8c2cf;
+        font-weight: 500;
+        line-height: 1.55;
+        margin-bottom: 0.15rem;
+    }
+
+    .hero-caption {
+        font-size: 14.5px;
+        color: #8995a5;
+        letter-spacing: 0.015em;
+        line-height: 1.6;
+    }
+
+    .section-note {
+        color: #9aa5b4;
+        font-size: 14px;
+        line-height: 1.55;
+        margin-top: -0.35rem;
+        margin-bottom: 0.9rem;
+    }
+
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 
 def load_data():
+
     raw_df = pd.read_csv(
         RAW_PATH
     )
@@ -72,6 +438,7 @@ def load_data():
 
 
 def load_anomaly_data():
+
     if not os.path.exists(
         ANOMALY_PATH
     ):
@@ -91,10 +458,16 @@ def load_anomaly_data():
     return df
 
 
-def find_column(df, candidates):
+def find_column(
+    df,
+    candidates
+):
+
     for candidate in candidates:
+
         if candidate in df.columns:
             return candidate
+
     return None
 
 
@@ -103,6 +476,7 @@ def format_value(
     suffix="",
     digits=1
 ):
+
     if pd.isna(value):
         return "—"
 
@@ -112,6 +486,7 @@ def format_value(
 
 
 def get_priority_column(df):
+
     return find_column(
         df,
         [
@@ -123,6 +498,7 @@ def get_priority_column(df):
 
 
 def get_event_column(df):
+
     return find_column(
         df,
         [
@@ -136,6 +512,7 @@ def get_event_column(df):
 
 
 def get_signal_column(df):
+
     return find_column(
         df,
         [
@@ -147,6 +524,7 @@ def get_signal_column(df):
 
 
 def get_action_column(df):
+
     return find_column(
         df,
         [
@@ -159,6 +537,7 @@ def get_action_column(df):
 
 
 def get_risk_column(df):
+
     return find_column(
         df,
         [
@@ -175,6 +554,7 @@ anomaly_df = load_anomaly_data()
 filtered_df = intelligence_df.copy()
 
 if "ts" in filtered_df.columns:
+
     filtered_df = filtered_df.sort_values(
         "ts"
     )
@@ -199,13 +579,16 @@ risk_col = get_risk_column(
     filtered_df
 )
 
+
 st.sidebar.title(
-    "🌍 ClimateTwin AI"
+    "🌍 ClimateTwin"
 )
 
 st.sidebar.caption(
-    "Environmental Intelligence System"
+    "AI Environmental Intelligence"
 )
+
+st.sidebar.divider()
 
 page = st.sidebar.radio(
     "Navigation",
@@ -220,7 +603,7 @@ page = st.sidebar.radio(
 st.sidebar.divider()
 
 st.sidebar.subheader(
-    "Dashboard Filters"
+    "Filters"
 )
 
 if "ts" in filtered_df.columns:
@@ -363,16 +746,25 @@ if page == "🌍 Overview":
         "🌍 ClimateTwin AI"
     )
 
-    st.subheader(
-        "AI-Powered Environmental Intelligence"
+    st.markdown(
+        '<div class="hero-subtitle">AI-Powered Environmental Intelligence</div>',
+        unsafe_allow_html=True
     )
 
-    st.write(
-        "From Data → Insight → Action → Impact"
+    st.markdown(
+        '<div class="hero-caption">Monitor • Detect • Predict • Explain</div>',
+        unsafe_allow_html=True
     )
+
+    st.markdown(
+        '<div class="hero-caption">From Data → Insight → Action → Impact</div>',
+        unsafe_allow_html=True
+    )
+
+    st.write("")
 
     st.success(
-        f"Dataset loaded successfully — "
+        f"Conduit dataset loaded — "
         f"{len(raw_df):,} observations | "
         f"{len(filtered_df):,} observations match current filters"
     )
@@ -458,6 +850,11 @@ if page == "🌍 Overview":
 
     st.header(
         "🌤️ Current Environmental Conditions"
+    )
+
+    st.markdown(
+        '<div class="section-note">Latest available environmental state in the filtered dataset</div>',
+        unsafe_allow_html=True
     )
 
     if len(filtered_df) > 0:
@@ -599,7 +996,10 @@ if page == "🌍 Overview":
         )
 
         r1, r2 = (
-            st.columns(2)
+            st.columns(
+                2,
+                gap="large"
+            )
         )
 
         with r1:
@@ -623,28 +1023,36 @@ if page == "🌍 Overview":
                     f"{icon} {current_risk}"
                 )
 
-                st.metric(
-                    "Current Heat Index",
-                    format_value(
-                        latest.get(
-                            "heat_idx"
-                        ),
-                        " °C"
-                    )
+                m1, m2 = (
+                    st.columns(2)
                 )
 
-                st.metric(
-                    "Current Humidity",
-                    format_value(
-                        latest.get(
-                            "humidity_sht"
-                        ),
-                        "%"
+                with m1:
+
+                    st.metric(
+                        "Heat Index",
+                        format_value(
+                            latest.get(
+                                "heat_idx"
+                            ),
+                            " °C"
+                        )
                     )
-                )
+
+                with m2:
+
+                    st.metric(
+                        "Humidity",
+                        format_value(
+                            latest.get(
+                                "humidity_sht"
+                            ),
+                            "%"
+                        )
+                    )
 
                 st.caption(
-                    f"Observation: {latest['ts']}"
+                    f"Observation timestamp: {latest['ts']}"
                 )
 
         with r2:
@@ -681,6 +1089,11 @@ if page == "🌍 Overview":
         "📈 Environmental Trends"
     )
 
+    st.markdown(
+        '<div class="section-note">Observed environmental changes across the selected time period</div>',
+        unsafe_allow_html=True
+    )
+
     if len(filtered_df) > 1:
 
         trend_df = (
@@ -704,24 +1117,24 @@ if page == "🌍 Overview":
                     "temp_sht",
                     "heat_idx"
                 ],
-                title=(
-                    "Temperature and Heat Index"
-                )
+                title="Temperature & Heat Index",
+                markers=False
             )
 
             fig.update_layout(
-                height=430,
+                height=420,
                 margin=dict(
-                    l=20,
-                    r=20,
-                    t=60,
-                    b=20
-                )
+                    l=10,
+                    r=10,
+                    t=55,
+                    b=15
+                ),
+                legend_title_text=""
             )
 
             st.plotly_chart(
                 fig,
-                use_container_width=True
+                width="stretch"
             )
 
         if all(
@@ -740,18 +1153,19 @@ if page == "🌍 Overview":
             )
 
             fig.update_layout(
-                height=380,
+                height=360,
                 margin=dict(
-                    l=20,
-                    r=20,
-                    t=60,
-                    b=20
-                )
+                    l=10,
+                    r=10,
+                    t=55,
+                    b=15
+                ),
+                legend_title_text=""
             )
 
             st.plotly_chart(
                 fig,
-                use_container_width=True
+                width="stretch"
             )
 
         if all(
@@ -770,18 +1184,19 @@ if page == "🌍 Overview":
             )
 
             fig.update_layout(
-                height=380,
+                height=360,
                 margin=dict(
-                    l=20,
-                    r=20,
-                    t=60,
-                    b=20
-                )
+                    l=10,
+                    r=10,
+                    t=55,
+                    b=15
+                ),
+                legend_title_text=""
             )
 
             st.plotly_chart(
                 fig,
-                use_container_width=True
+                width="stretch"
             )
 
     st.header(
@@ -831,9 +1246,7 @@ if page == "🌍 Overview":
             x="ts",
             y="priority_num",
             color=priority_col,
-            title=(
-                "Environmental Priority Timeline"
-            )
+            title="Environmental Priority Timeline"
         )
 
         fig.update_yaxes(
@@ -851,18 +1264,19 @@ if page == "🌍 Overview":
         )
 
         fig.update_layout(
-            height=420,
+            height=400,
             margin=dict(
-                l=20,
-                r=20,
-                t=60,
-                b=20
-            )
+                l=10,
+                r=10,
+                t=55,
+                b=15
+            ),
+            legend_title_text=""
         )
 
         st.plotly_chart(
             fig,
-            use_container_width=True
+            width="stretch"
         )
 
     st.header(
@@ -892,24 +1306,23 @@ if page == "🌍 Overview":
             event_counts,
             x="Event",
             y="Count",
-            title=(
-                "Detected Environmental Events"
-            )
+            title="Detected Environmental Events"
         )
 
         fig.update_layout(
-            height=420,
+            height=400,
             margin=dict(
-                l=20,
-                r=20,
-                t=60,
-                b=20
-            )
+                l=10,
+                r=10,
+                t=55,
+                b=15
+            ),
+            showlegend=False
         )
 
         st.plotly_chart(
             fig,
-            use_container_width=True
+            width="stretch"
         )
 
     st.header(
@@ -956,15 +1369,14 @@ if page == "🌍 Overview":
                     ascending=False
                 )
                 .head(20),
-                use_container_width=True,
+                width="stretch",
                 hide_index=True
             )
 
         else:
 
             st.info(
-                "No high-priority events are present "
-                "in the current filters."
+                "No high-priority events are present in the current filters."
             )
 
     st.header(
@@ -972,9 +1384,8 @@ if page == "🌍 Overview":
     )
 
     st.info(
-        "The current Conduit dataset does not contain "
-        "latitude/longitude fields. The map layer will "
-        "automatically activate when geospatial coordinates "
+        "The current Conduit dataset does not contain latitude/longitude "
+        "fields. The geospatial layer can be activated when coordinates "
         "are added to the dataset."
     )
 
@@ -1019,29 +1430,28 @@ if page == "🌍 Overview":
     with i1:
 
         st.metric(
-            "Detected Environmental Events",
+            "Elevated Observations",
             elevated_count
         )
 
     with i2:
 
         st.metric(
-            "Elevated Risk Observations",
-            elevated_count
+            "Elevated Risk Rate",
+            f"{elevated_rate:.2f}%"
         )
 
     with i3:
 
         st.metric(
-            "Elevated Risk Rate",
-            f"{elevated_rate:.2f}%"
+            "Total Observations",
+            total_count
         )
 
     st.info(
-        "ClimateTwin AI converts environmental observations "
-        "into environmental events, risk levels, signals, "
-        "and recommended actions to support earlier "
-        "decision-making."
+        "ClimateTwin AI transforms environmental observations into "
+        "environmental events, priorities, signals, and recommended "
+        "actions to support earlier interpretation and decision-making."
     )
 
     st.header(
@@ -1065,82 +1475,101 @@ if page == "🌍 Overview":
         )
 
         col1, col2 = (
-            st.columns(2)
+            st.columns(
+                2,
+                gap="large"
+            )
         )
 
         with col1:
 
-            st.write(
-                "**Priority**"
-            )
+            with st.container(
+                border=True
+            ):
 
-            st.write(
-                str(
-                    latest[
-                        priority_col
-                    ]
-                    if priority_col
-                    else "LOW"
+                st.write(
+                    "**Priority**"
                 )
-            )
 
-            st.write(
-                "**Signals**"
-            )
-
-            st.write(
-                str(
-                    latest[
-                        signal_col
-                    ]
-                    if signal_col
-                    else "No abnormal environmental signals detected."
+                st.write(
+                    str(
+                        latest[
+                            priority_col
+                        ]
+                        if priority_col
+                        else "LOW"
+                    )
                 )
-            )
+
+                st.write(
+                    "**Signals**"
+                )
+
+                st.write(
+                    str(
+                        latest[
+                            signal_col
+                        ]
+                        if signal_col
+                        else "No abnormal environmental signals detected."
+                    )
+                )
 
         with col2:
 
-            st.write(
-                "**Recommended Action**"
-            )
+            with st.container(
+                border=True
+            ):
 
-            st.write(
-                str(
-                    latest[
-                        action_col
-                    ]
-                    if action_col
-                    else "Continue monitoring environmental conditions."
+                st.write(
+                    "**Recommended Action**"
                 )
-            )
 
-            st.write(
-                "**Timestamp**"
-            )
-
-            st.write(
-                str(
-                    latest["ts"]
+                st.write(
+                    str(
+                        latest[
+                            action_col
+                        ]
+                        if action_col
+                        else "Continue monitoring environmental conditions."
+                    )
                 )
-            )
+
+                st.write(
+                    "**Timestamp**"
+                )
+
+                st.write(
+                    str(
+                        latest["ts"]
+                    )
+                )
+
+    st.divider()
 
     st.caption(
         "ClimateTwin AI • Environmental Data → Intelligence → "
-        "Prediction → Action → Impact"
+        "Prediction → Explain → Impact"
     )
 
 
 elif page == "🔮 Prediction Lab":
 
     st.title(
-        "🔮 ClimateTwin Prediction Lab"
+        "🔮 Prediction Lab"
     )
 
-    st.write(
-        "Forecast the short-term environmental state "
-        "using Conduit data or create a custom "
-        "what-if scenario."
+    st.markdown(
+        '<div class="hero-subtitle">Short-term environmental forecasting</div>',
+        unsafe_allow_html=True
     )
+
+    st.markdown(
+        '<div class="hero-caption">+1 hour • +2 hours • +3 hours</div>',
+        unsafe_allow_html=True
+    )
+
+    st.write("")
 
     prediction_mode = st.radio(
         "Prediction Mode",
@@ -1163,8 +1592,7 @@ elif page == "🔮 Prediction Lab":
             forecast = predict_all()
 
             st.success(
-                "Forecast generated from the latest "
-                "available Conduit observation."
+                "Forecast generated from the latest available Conduit observation."
             )
 
         except Exception as e:
@@ -1179,6 +1607,11 @@ elif page == "🔮 Prediction Lab":
             "🧪 What-If Scenario"
         )
 
+        st.markdown(
+            '<div class="section-note">Enter a hypothetical environmental state and estimate the model response.</div>',
+            unsafe_allow_html=True
+        )
+
         try:
 
             live_forecast = predict_all()
@@ -1187,11 +1620,7 @@ elif page == "🔮 Prediction Lab":
                 live_forecast["current"]
             )
 
-        except Exception as e:
-
-            st.error(
-                f"Unable to load current conditions: {e}"
-            )
+        except Exception:
 
             defaults = {
                 "temp_sht": 25.0,
@@ -1205,7 +1634,10 @@ elif page == "🔮 Prediction Lab":
         ):
 
             i1, i2 = (
-                st.columns(2)
+                st.columns(
+                    2,
+                    gap="large"
+                )
             )
 
             with i1:
@@ -1271,7 +1703,7 @@ elif page == "🔮 Prediction Lab":
             predict_button = (
                 st.form_submit_button(
                     "🔮 Predict Environment",
-                    use_container_width=True
+                    width="stretch"
                 )
             )
 
@@ -1279,18 +1711,14 @@ elif page == "🔮 Prediction Lab":
 
             try:
 
-                custom_forecast = (
-                    predict_custom(
-                        input_temperature,
-                        input_humidity,
-                        input_heat_index,
-                        input_wind
-                    )
-                )
-
                 st.session_state[
                     "custom_forecast"
-                ] = custom_forecast
+                ] = predict_custom(
+                    input_temperature,
+                    input_humidity,
+                    input_heat_index,
+                    input_wind
+                )
 
             except Exception as e:
 
@@ -1312,8 +1740,7 @@ elif page == "🔮 Prediction Lab":
         else:
 
             st.info(
-                "Enter environmental conditions "
-                "and click Predict Environment."
+                "Enter your scenario values and click Predict Environment."
             )
 
     if forecast is not None:
@@ -1434,12 +1861,12 @@ elif page == "🔮 Prediction Lab":
 
         st.dataframe(
             table_display,
-            use_container_width=True,
+            width="stretch",
             hide_index=True
         )
 
         st.subheader(
-            "🌡️ Temperature & Heat Index Forecast"
+            "🌡️ Temperature & Heat Index"
         )
 
         fig = px.line(
@@ -1450,82 +1877,94 @@ elif page == "🔮 Prediction Lab":
                 "Heat Index"
             ],
             markers=True,
-            title=(
-                "Temperature and Heat Index Forecast"
-            )
+            title="Temperature and Heat Index Forecast"
         )
 
         fig.update_layout(
-            height=420,
+            height=390,
             margin=dict(
-                l=20,
-                r=20,
-                t=60,
-                b=20
-            )
+                l=10,
+                r=10,
+                t=55,
+                b=15
+            ),
+            legend_title_text=""
         )
 
         st.plotly_chart(
             fig,
-            use_container_width=True
+            width="stretch"
         )
 
-        st.subheader(
-            "💧 Humidity Forecast"
-        )
-
-        fig = px.line(
-            forecast_table,
-            x="Horizon",
-            y="Humidity",
-            markers=True,
-            title="Humidity Forecast"
-        )
-
-        fig.update_layout(
-            height=380,
-            margin=dict(
-                l=20,
-                r=20,
-                t=60,
-                b=20
+        left, right = (
+            st.columns(
+                2,
+                gap="large"
             )
         )
 
-        st.plotly_chart(
-            fig,
-            use_container_width=True
-        )
+        with left:
 
-        st.subheader(
-            "💨 Wind Forecast"
-        )
-
-        fig = px.line(
-            forecast_table,
-            x="Horizon",
-            y="Wind Speed",
-            markers=True,
-            title="Wind Speed Forecast"
-        )
-
-        fig.update_layout(
-            height=380,
-            margin=dict(
-                l=20,
-                r=20,
-                t=60,
-                b=20
+            st.subheader(
+                "💧 Humidity Forecast"
             )
-        )
 
-        st.plotly_chart(
-            fig,
-            use_container_width=True
-        )
+            fig = px.line(
+                forecast_table,
+                x="Horizon",
+                y="Humidity",
+                markers=True,
+                title="Humidity"
+            )
+
+            fig.update_layout(
+                height=350,
+                margin=dict(
+                    l=10,
+                    r=10,
+                    t=55,
+                    b=15
+                ),
+                showlegend=False
+            )
+
+            st.plotly_chart(
+                fig,
+                width="stretch"
+            )
+
+        with right:
+
+            st.subheader(
+                "💨 Wind Forecast"
+            )
+
+            fig = px.line(
+                forecast_table,
+                x="Horizon",
+                y="Wind Speed",
+                markers=True,
+                title="Wind Speed"
+            )
+
+            fig.update_layout(
+                height=350,
+                margin=dict(
+                    l=10,
+                    r=10,
+                    t=55,
+                    b=15
+                ),
+                showlegend=False
+            )
+
+            st.plotly_chart(
+                fig,
+                width="stretch"
+            )
 
         st.subheader(
-            "🌍 Predicted Environmental Outlook"
+            "🌍 Environmental Outlook"
         )
 
         temp_change = (
@@ -1553,9 +1992,8 @@ elif page == "🔮 Prediction Lab":
             )
 
             outlook_text = (
-                "The model projects warmer and "
-                "drier conditions over the next "
-                "three hours."
+                "The model projects warmer and drier "
+                "conditions over the next three hours."
             )
 
         elif (
@@ -1568,9 +2006,8 @@ elif page == "🔮 Prediction Lab":
             )
 
             outlook_text = (
-                "The model projects cooler and "
-                "more humid conditions over the "
-                "next three hours."
+                "The model projects cooler and more humid "
+                "conditions over the next three hours."
             )
 
         elif heat_change > 0.5:
@@ -1580,8 +2017,8 @@ elif page == "🔮 Prediction Lab":
             )
 
             outlook_text = (
-                "The predicted heat index increases "
-                "over the next three hours."
+                "The predicted heat index increases over "
+                "the next three hours."
             )
 
         elif heat_change < -0.5:
@@ -1591,8 +2028,8 @@ elif page == "🔮 Prediction Lab":
             )
 
             outlook_text = (
-                "The predicted heat index decreases "
-                "over the next three hours."
+                "The predicted heat index decreases over "
+                "the next three hours."
             )
 
         else:
@@ -1600,9 +2037,8 @@ elif page == "🔮 Prediction Lab":
             outlook_title = "STABLE"
 
             outlook_text = (
-                "The forecast indicates relatively "
-                "stable short-term environmental "
-                "conditions."
+                "The forecast indicates relatively stable "
+                "short-term environmental conditions."
             )
 
         with st.container(
@@ -1618,7 +2054,7 @@ elif page == "🔮 Prediction Lab":
             )
 
         st.subheader(
-            "📈 Three-Hour Change"
+            "📈 Change Over 3 Hours"
         )
 
         q1, q2, q3, q4 = (
@@ -1659,7 +2095,7 @@ elif page == "🔮 Prediction Lab":
             )
 
         st.subheader(
-            "🎯 Model Validation"
+            "🎯 Forecast Validation"
         )
 
         v1, v2, v3 = (
@@ -1687,23 +2123,26 @@ elif page == "🔮 Prediction Lab":
                 "R² 0.860 @ +3h"
             )
 
-        st.caption(
-            "Validation values come from the current "
-            "prototype dataset and temporal test split. "
-            "Wind prediction has substantially lower "
-            "validation performance and should be "
-            "interpreted cautiously."
-        )
+        with st.expander(
+            "Model limitations"
+        ):
 
-        if forecast.get(
-            "mode"
-        ) == "what_if":
+            st.write(
+                "These validation values are measured on the "
+                "current prototype dataset using a temporal "
+                "test split. They should not be interpreted "
+                "as general weather-forecast accuracy."
+            )
 
-            st.info(
-                "This is a what-if scenario. The model "
-                "uses the current Conduit history as "
-                "context while replacing the current "
-                "environmental state with your entered values."
+            st.write(
+                "Wind speed currently has substantially "
+                "lower validation performance than the other "
+                "forecast targets and should be interpreted cautiously."
+            )
+
+            st.write(
+                "What-If predictions are hypothetical model "
+                "outputs based on user-supplied conditions."
             )
 
 
@@ -1718,16 +2157,17 @@ elif page == "🤖 ClimateTwin Copilot":
         "🤖 ClimateTwin Copilot"
     )
 
-    st.write(
-        "Ask ClimateTwin about environmental observations, "
-        "anomalies, forecasts, methodology, or environmental concepts."
+    st.markdown(
+        '<div class="hero-subtitle">Ask • Investigate • Predict • Understand</div>',
+        unsafe_allow_html=True
     )
 
-    st.info(
-        "ClimateTwin Copilot combines Conduit observations, "
-        "anomaly intelligence, forecasting models, retrieved "
-        "knowledge, and Gemini."
+    st.markdown(
+        '<div class="hero-caption">Data + Anomaly Intelligence + Prediction + RAG + Gemini</div>',
+        unsafe_allow_html=True
     )
+
+    st.write("")
 
     c1, c2, c3, c4 = (
         st.columns(4)
@@ -1736,21 +2176,21 @@ elif page == "🤖 ClimateTwin Copilot":
     with c1:
 
         st.metric(
-            "📊 Data",
+            "📊 DATA",
             "Connected"
         )
 
     with c2:
 
         st.metric(
-            "🚨 Anomaly",
+            "🚨 ANOMALY",
             "Connected"
         )
 
     with c3:
 
         st.metric(
-            "🔮 Prediction",
+            "🔮 PREDICTION",
             "Connected"
         )
 
@@ -1767,17 +2207,22 @@ elif page == "🤖 ClimateTwin Copilot":
         "💬 Ask ClimateTwin"
     )
 
+    st.caption(
+        "Ask about observations, unusual conditions, forecasts, concepts, or hypothetical environmental scenarios."
+    )
+
     sample_questions = [
         "What is wet-bulb temperature?",
         "What was the highest temperature recorded?",
         "What will happen in the next 3 hours?",
         "What will happen in the next 3 hours and why?",
         "Why should wind predictions be interpreted cautiously?",
-        "Why is humidity expected to increase?"
+        "Why is humidity expected to increase?",
+        "What happens if temperature becomes 30°C and humidity drops to 35%?"
     ]
 
     selected_question = st.selectbox(
-        "Try a question",
+        "Quick questions",
         [
             "Choose a question"
         ] + sample_questions
@@ -1787,7 +2232,7 @@ elif page == "🤖 ClimateTwin Copilot":
 
         if st.button(
             "Use Selected Question",
-            use_container_width=True
+            width="stretch"
         ):
 
             st.session_state[
@@ -1827,8 +2272,7 @@ elif page == "🤖 ClimateTwin Copilot":
                 if route_value:
 
                     st.caption(
-                        f"Route: {route_value} | "
-                        f"Gemini Flash"
+                        f"Route: {route_value} • Gemini Flash"
                     )
 
                 sources = message.get(
@@ -1941,7 +2385,7 @@ elif page == "🤖 ClimateTwin Copilot":
                     )
 
                 st.caption(
-                    f"Route: {route} | Gemini Flash"
+                    f"Route: {route} • Gemini Flash"
                 )
 
                 sources = prepared.get(
@@ -1990,8 +2434,7 @@ elif page == "🤖 ClimateTwin Copilot":
         except Exception as e:
 
             error_message = (
-                f"ClimateTwin could not process "
-                f"the question: {e}"
+                f"ClimateTwin could not process the question: {e}"
             )
 
             with st.chat_message(
@@ -2040,7 +2483,9 @@ elif page == "🤖 ClimateTwin Copilot":
         "🧠 Copilot Capabilities"
     )
 
-    capability_columns = st.columns(4)
+    capability_columns = (
+        st.columns(4)
+    )
 
     with capability_columns[0]:
 
@@ -2083,7 +2528,7 @@ elif page == "🤖 ClimateTwin Copilot":
             )
 
             st.write(
-                "Uses the +1h, +2h and +3h "
+                "Uses +1h, +2h and +3h "
                 "forecast models."
             )
 
@@ -2106,21 +2551,55 @@ elif page == "🤖 ClimateTwin Copilot":
 elif page == "📊 Data Explorer":
 
     st.title(
-        "📊 ClimateTwin Data Explorer"
+        "📊 Data Explorer"
     )
 
-    st.write(
-        "Explore the filtered environmental "
-        "intelligence dataset."
+    st.markdown(
+        '<div class="hero-subtitle">Explore the environmental intelligence dataset</div>',
+        unsafe_allow_html=True
     )
+
+    st.markdown(
+        '<div class="hero-caption">Filter • Inspect • Download</div>',
+        unsafe_allow_html=True
+    )
+
+    st.write("")
+
+    c1, c2, c3 = (
+        st.columns(3)
+    )
+
+    with c1:
+
+        st.metric(
+            "FILTERED OBSERVATIONS",
+            f"{len(filtered_df):,}"
+        )
+
+    with c2:
+
+        st.metric(
+            "DATASET OBSERVATIONS",
+            f"{len(raw_df):,}"
+        )
+
+    with c3:
+
+        st.metric(
+            "DATASET COLUMNS",
+            f"{len(filtered_df.columns):,}"
+        )
+
+    st.divider()
 
     st.subheader(
-        f"{len(filtered_df):,} filtered observations"
+        "Complete Dataset"
     )
 
     st.dataframe(
         filtered_df,
-        use_container_width=True,
+        width="stretch",
         hide_index=True
     )
 
@@ -2135,11 +2614,9 @@ elif page == "📊 Data Explorer":
     st.download_button(
         "⬇️ Download Filtered Dataset",
         data=csv_data,
-        file_name=(
-            "climatetwin_filtered_data.csv"
-        ),
+        file_name="climatetwin_filtered_data.csv",
         mime="text/csv",
-        use_container_width=True
+        width="stretch"
     )
 
     st.divider()
@@ -2172,6 +2649,11 @@ elif page == "📊 Data Explorer":
 
     st.dataframe(
         structure_df,
-        use_container_width=True,
+        width="stretch",
         hide_index=True
+    )
+
+    st.caption(
+        "ClimateTwin AI • Environmental Data → Intelligence → "
+        "Prediction → Explain → Impact"
     )
