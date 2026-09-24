@@ -1,0 +1,41 @@
+ClimateTwin short-term forecasting uses Random Forest regression models.
+
+The forecasting features include recent environmental observations, lagged measurements, rolling averages, and time-based variables.
+
+The current target variables are temperature, humidity, heat index, and wind speed.
+
+The forecasting data is resampled to a 15-minute interval.
+
+Four 15-minute steps correspond to a one-hour forecast.
+
+Eight 15-minute steps correspond to a two-hour forecast.
+
+Twelve 15-minute steps correspond to a three-hour forecast.
+
+The forecast models use a temporal train-test split rather than randomly shuffling observations.
+
+Current prototype validation results are:
+
+One hour:
+Temperature R2 = 0.9416
+Humidity R2 = 0.9339
+Heat index R2 = 0.9401
+Wind speed R2 = 0.2004
+
+Two hours:
+Temperature R2 = 0.8958
+Humidity R2 = 0.8316
+Heat index R2 = 0.8994
+Wind speed R2 = 0.1277
+
+Three hours:
+Temperature R2 = 0.8616
+Humidity R2 = 0.8038
+Heat index R2 = 0.8600
+Wind speed R2 = 0.1040
+
+Forecast accuracy decreases as the prediction horizon increases.
+
+Wind speed currently has substantially lower validation performance than temperature, humidity, and heat index. Wind predictions should therefore be interpreted cautiously.
+
+The current forecasting results are prototype validation results on the available dataset and do not establish general weather forecasting accuracy.

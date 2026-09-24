@@ -1,0 +1,19 @@
+ClimateTwin AI is designed as an environmental intelligence system that converts environmental observations into insight, prediction, explanation, and recommended action.
+
+The system currently contains four major analytical layers.
+
+The first layer is environmental monitoring, which presents current and historical Conduit observations.
+
+The second layer is anomaly detection. ClimateTwin currently uses an Isolation Forest model to identify observations that differ from the learned normal pattern.
+
+The prototype anomaly model uses temperature, pressure, humidity, radiation, wind, heat index, wet-bulb temperature, and wet-bulb globe temperature features.
+
+The anomaly model uses a contamination configuration of 0.05. Therefore the observed anomaly proportion should not be interpreted as the natural frequency of real-world hazards.
+
+The third layer is environmental intelligence. Prototype rules transform detected anomalies into event categories, priority levels, signals, and recommended actions.
+
+These labels are prototype analytical outputs and should not be interpreted as official meteorological hazard classifications without additional validation.
+
+The fourth layer is short-term forecasting. ClimateTwin predicts environmental variables at one-hour, two-hour, and three-hour horizons.
+
+ClimateTwin is intended to support interpretation and decision-making from environmental data. It does not claim long-term climate forecasting or definitive prediction of floods, droughts, storms, or other hazards from the current prototype dataset.

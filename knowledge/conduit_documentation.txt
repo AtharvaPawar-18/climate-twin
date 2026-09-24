@@ -1,0 +1,25 @@
+ClimateTwin AI uses environmental observations obtained from the JKUAT Conduit data system.
+
+The current prototype dataset contains environmental sensor observations collected approximately every 15 minutes from a single station.
+
+The dataset includes timestamp, rainfall-related fields, temperature measurements, pressure, humidity, visible light, infrared radiation, ultraviolet radiation, wind speed, wind direction, wind gust, heat index, wet-bulb temperature, and wet-bulb globe temperature.
+
+Important temperature-related fields include temp_bmx, temp_mcp, and temp_sht.
+
+humidity_sht represents relative humidity.
+
+wind_spd represents wind speed.
+
+wind_dir represents wind direction.
+
+wind_gust represents wind gust measurement.
+
+heat_idx represents heat index.
+
+wet_bulb_temp represents wet-bulb temperature.
+
+wet_bulb_globe_temp represents wet-bulb globe temperature.
+
+The current prototype dataset does not contain latitude and longitude coordinates.
+
+The current ClimateTwin prototype uses Conduit observations as the underlying environmental data source.

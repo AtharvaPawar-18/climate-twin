@@ -1,0 +1,19 @@
+Temperature describes the measured environmental air temperature.
+
+Relative humidity describes the amount of moisture in the air relative to the amount the air can hold at that temperature.
+
+Heat index is an indicator that combines temperature and humidity to represent how hot conditions may feel.
+
+Wet-bulb temperature is the lowest temperature that can be reached through evaporative cooling under the measured conditions. It is useful when considering the interaction between temperature and humidity.
+
+Wet-bulb globe temperature is an environmental heat-stress measurement that accounts for temperature, humidity, radiant heat, and wind effects depending on the measurement method.
+
+Wind speed describes the speed of moving air.
+
+Wind direction describes the direction from which the wind is measured.
+
+Environmental anomalies are observations that differ substantially from the patterns learned or defined by the ClimateTwin prototype.
+
+An environmental anomaly does not automatically mean a dangerous weather event. It means that the observation is unusual relative to the model or baseline used by the system.
+
+Short-term environmental forecasting attempts to estimate future environmental variables from recent observations and temporal patterns.

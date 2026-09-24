@@ -1,0 +1,12 @@
+requests
+pandas
+python-dotenv
+streamlit
+pandas
+numpy
+plotly
+scikit-learn
+joblib
+sentence-transformers
+faiss-cpu
+google-genai
